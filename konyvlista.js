@@ -1,3 +1,7 @@
+
+var star = 0;
+document.getElementsByClassName("stars").innerHTML = star
+
 function print(){
     let author = document.getElementById("author").value
     let title = document.getElementById("title").value
@@ -7,6 +11,7 @@ function print(){
 
     stars.forEach((star, clickedIdx) =>{
     star.addEventListener("click",() => {
+        star = clickedIdx;
         starWrapper.classList.add("disabled");
         stars.forEach((otherStar, otherIdx) => {
             if (otherIdx <= clickedIdx) {
@@ -17,7 +22,7 @@ function print(){
     })
 })
 //csillagokat megjeleníteni?
-    result = "<li>"+ author + ": " + title
+    result = "<li>"+ author + ": " + title + clickedIdx
 
 
     document.getElementById("result").innerHTML += result
