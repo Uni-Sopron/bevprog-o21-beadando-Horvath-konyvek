@@ -1,6 +1,19 @@
+var book_stars = 0;
 
-var star = 0;
-document.getElementsByClassName("stars").innerHTML = star
+function mystars(){
+    stars.forEach((star, clickedIdx) =>{
+        star.addEventListener("click",() => {
+            book_stars = clickedIdx + 1;
+            starWrapper.classList.add("disabled");
+            star.forEach((otherStar, otherIdx) => {
+                if (otherIdx <= clickedIdx) {
+                    otherStar.classList.add("active");
+                }
+            })
+            console.log(`star if index ${clickedIdx + 1} was clicked`)
+        })
+    })
+}
 
 function print(){
     let author = document.getElementById("author").value
@@ -9,27 +22,14 @@ function print(){
     const starWrapper = document.querySelector(".stars");
     const stars = document.querySelectorAll(".stars a");
 
-    stars.forEach((star, clickedIdx) =>{
-    star.addEventListener("click",() => {
-        star = clickedIdx;
-        starWrapper.classList.add("disabled");
-        stars.forEach((otherStar, otherIdx) => {
-            if (otherIdx <= clickedIdx) {
-                otherStar.classList.add("active");
-            }
-        })
-        console.log(`star if index ${clickedIdx + 1} was clicked`)
-    })
-})
-//csillagokat megjeleníteni?
-    result = "<li>"+ author + ": " + title + clickedIdx
-
+    result = "<li>"+ author + ": " + title + book_stars
 
     document.getElementById("result").innerHTML += result
     input_torlese()
 }
-//újra elhalványítani a csillagokat?
+
 function input_torlese(){
     document.getElementById("author").value =""
     document.getElementById("title").value =""
+
 }
