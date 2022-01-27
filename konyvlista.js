@@ -1,6 +1,8 @@
 var book_stars = 0;
 
-function mystars(){
+function mystars(){    
+    const starWrapper = document.querySelector(".stars");
+    const stars = document.querySelectorAll(".stars a");
     stars.forEach((star, clickedIdx) =>{
         star.addEventListener("click",() => {
             book_stars = clickedIdx + 1;
@@ -18,9 +20,6 @@ function mystars(){
 function print(){
     let author = document.getElementById("author").value
     let title = document.getElementById("title").value
-
-    const starWrapper = document.querySelector(".stars");
-    const stars = document.querySelectorAll(".stars a");
 
     result = "<li>"+ author + ": " + title + book_stars
 
