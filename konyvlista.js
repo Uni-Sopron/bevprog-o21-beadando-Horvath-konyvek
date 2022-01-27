@@ -7,7 +7,7 @@ function mystars(){
         star.addEventListener("click",() => {
             book_stars = clickedIdx + 1;
             starWrapper.classList.add("disabled");
-            star.forEach((otherStar, otherIdx) => {
+            stars.forEach((otherStar, otherIdx) => {
                 if (otherIdx <= clickedIdx) {
                     otherStar.classList.add("active");
                 }
